@@ -1,0 +1,13 @@
+[package]
+name = "salty-storage"
+version = "0.1.0"
+authors = ["InsolubleHCO3-"]
+description = "The fastest, smartest, prettiest ever file storage with sustainability guarantee."
+repository = "https://github.com/Hydrostic/salty-storage"
+readme = "README.md"
+edition = "2021"
+license = "AGPL-3.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
