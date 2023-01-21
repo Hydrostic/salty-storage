@@ -7,7 +7,42 @@ repository = "https://github.com/Hydrostic/salty-storage"
 readme = "README.md"
 edition = "2021"
 license = "AGPL-3.0"
+build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "salty-storage"
+path = "./src/main.rs"
 
 [dependencies]
+lazy_static = "1.4.0"
+bcrypt = "0.13.0"
+
+#actix
+actix-web = "4"
+
+#config
+config = "0.13.1"
+
+#rbatis
+rbatis = "4.0.49"
+rbdc-mysql={version="0.1"}
+rbs = "0.1.15"
+
+#log
+log = "0.4"
+fast_log = {version = "1.5"}
+
+#serde
+serde = { version = "1", features = ["derive"] }
+serde_repr = "0.1.10"
+
+derive_more = "0.99.17"
+regex = "1.7.1"
+validator = { version = "0.16.0", features = ["derive"] }
+serde_json = "1.0.91"
+http = "0.2.8"
+anyhow = "1.0"
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://raw.githubusercontent.com/rbatis/rbatis/master/rbatis-codegen/mybatis-3-mapper.dtd">
+<mapper>
+    <insert id="create_one">
+        `insert into users `
+        <foreach collection="args" index="key" item="item" open="(" close=")" separator=",">
+            <if test="key == 'id'">
+                <continue/>
+            </if>
+            ${key}
+        </foreach>
+        ` values `
+        <foreach collection="args" index="key" item="item" open="(" close=")" separator=",">
+            <if test="key == 'id'">
+                <continue/>
+            </if>
+            <if test="item == null">
+                null
+            </if>
+            <if test="item != null">
+                "#{item}"
+            </if>
+        </foreach>
+    </insert>
+    <select id="get_one">
+        `select `
+        <if test="fields.is_empty()">
+            *
+        </if>
+        <if test="!fields.is_empty()">
+            <foreach collection="fields" item="item" open="(" close=")" separator=",">
+                ${item}
+            </foreach>
+        </if>
+        ` from users where ${condition} = #{condition_value}`
+        ` limit 1 `
+    </select>
+</mapper>
